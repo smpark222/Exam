@@ -1,8 +1,8 @@
 package com.example.a403.myapplication;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import static com.example.a403.myapplication.R.drawable.aaa;
 import static com.example.a403.myapplication.R.drawable.bbb;
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         start = (Switch) findViewById(R.id.start);
         time = (TimePicker)findViewById(R.id.time);
         date = (CalendarView) findViewById(R.id.date);
-
         layout1 = (LinearLayout)findViewById(R.id.layout1);
         layout2 = (LinearLayout)findViewById(R.id.layout2);
         radioButton = (RadioButton)findViewById(R.id.radioButton);
@@ -103,13 +103,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(editText.getText() == null || editText2.getText() == null || editText3.getText() == null){
-
+                    Toast.makeText(getApplicationContext(), "인원을 입력하세요", Toast.LENGTH_SHORT).show();
                 }
-                int result = (Integer.parseInt(editText.getText().toString()) * 15000 + Integer.parseInt(editText2.getText().toString()) * 12000 + Integer.parseInt(editText3.getText().toString()) * 8000);
-                int people = Integer.parseInt(editText.getText().toString()) + Integer.parseInt(editText2.getText().toString()) + Integer.parseInt(editText3.getText().toString());
-                textView5.setText(people);
-                textView7.setText(result*a);
-                textView9.setText(result - result*a);
+                else {
+                    int result = (Integer.parseInt(editText.getText().toString()) * 15000 + Integer.parseInt(editText2.getText().toString()) * 12000 + Integer.parseInt(editText3.getText().toString()) * 8000);
+                    int people = Integer.parseInt(editText.getText().toString()) + Integer.parseInt(editText2.getText().toString()) + Integer.parseInt(editText3.getText().toString());
+                    textView5.setText(people);
+                    textView7.setText(result * a);
+                    textView9.setText(result - result * a);
+                }
             }
         });
 
@@ -122,4 +124,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
