@@ -16,6 +16,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import static com.example.a403.myapplication.R.drawable.aaa;
+import static com.example.a403.myapplication.R.drawable.ccc;
+
 public class MainActivity extends AppCompatActivity {
 
     Button button, button2, back, complete;
@@ -73,7 +76,10 @@ public class MainActivity extends AppCompatActivity {
         radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked ==true) a = 5/100;
+                if(isChecked ==true) {
+                    a = 5 / 100;
+                    imageView.setImageResource(aaa);
+                }
 
             }
         });
@@ -81,12 +87,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked ==true) a = 10/100;
+                imageView.setImageResource(bbb);
             }
         });
         radioButton3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked ==true) a = 20/100;
+                imageView.setImageResource(ccc);
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
