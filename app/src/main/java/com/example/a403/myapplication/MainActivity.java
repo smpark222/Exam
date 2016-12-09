@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import static com.example.a403.myapplication.R.drawable.aaa;
+import static com.example.a403.myapplication.R.drawable.bbb;
 import static com.example.a403.myapplication.R.drawable.ccc;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
         start = (Switch) findViewById(R.id.start);
         time = (TimePicker)findViewById(R.id.time);
         date = (CalendarView) findViewById(R.id.date);
-        layout1 = (Layout)findViewById(R.id.layout1);
-        layout2 = (Layout)findViewById(R.id.layout2);
+
+        layout1 = (LinearLayout)findViewById(R.id.layout1);
+        layout2 = (LinearLayout)findViewById(R.id.layout2);
         radioButton = (RadioButton)findViewById(R.id.radioButton);
         radioButton2 = (RadioButton)findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton)findViewById(R.id.radioButton3);
@@ -100,8 +102,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int result = (Integer.parseInt(editText.getText().toString()) * 15000 + Integer.parseInt(editText2.getText().toString()) * 12000 + Integer.parseInt(editText3.getText().toString()) * 8000)* a;
+                if(editText.getText() == null || editText2.getText() == null || editText3.getText() == null){
+
+                }
+                int result = (Integer.parseInt(editText.getText().toString()) * 15000 + Integer.parseInt(editText2.getText().toString()) * 12000 + Integer.parseInt(editText3.getText().toString()) * 8000);
                 int people = Integer.parseInt(editText.getText().toString()) + Integer.parseInt(editText2.getText().toString()) + Integer.parseInt(editText3.getText().toString());
+                textView5.setText(people);
+                textView7.setText(result*a);
+                textView9.setText(result - result*a);
             }
         });
 
